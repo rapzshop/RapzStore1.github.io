@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RAPZZ - Jasa Suntik Sosial Media</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>RAPZZ - Jasa Suntik Sosmed</h1>
+    <p>Boost Followers, Likes, & Views dengan Cepat & Aman</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Produk Kami</h2>
+      <img src="produk1.jpg" class="product-img" alt="Instagram Price List" />
+      <img src="produk2.jpg" class="product-img" alt="Paket Suntik Murah" />
+      <img src="produk3.jpg" class="product-img" alt="TikTok Price List" />
+    </div>
+
+    <div class="card">
+      <h2>Paket Instagram</h2>
+      <p>Followers: Mulai Rp 3.000/100</p>
+      <p>Likes: Mulai Rp 500/100</p>
+      <p>Reel Views: Mulai Rp 2.000/1000 views</p>
+      <a href="https://wa.me/6289676041826" class="order-btn">Order via WhatsApp</a>
+    </div>
+
+    <div class="card">
+      <h2>Paket TikTok</h2>
+      <p>Followers: Mulai Rp 4.500/100</p>
+      <p>Likes: Mulai Rp 1.000/100</p>
+      <p>Views: Mulai Rp 500/1000 views</p>
+      <a href="https://wa.me/6289676041826" class="order-btn">Order via WhatsApp</a>
+    </div>
+
+    <div class="card">
+      <h2>Paket Suntik Murah</h2>
+      <p>100 Like + 3000 View TikTok hanya Rp 2.000</p>
+      <a href="https://wa.me/6289676041826" class="order-btn">Order via WhatsApp</a>
+    </div>
+
+    <div class="card">
+      <h2>Testimoni</h2>
+      <p>Lihat testimoni pelanggan kami di channel WhatsApp:</p>
+      <a href="https://whatsapp.com/channel/0029Vafg7cv5kg7BukWuTd3S" class="order-btn">Lihat Testimoni</a>
+    </div>
+
+    <div class="card">
+      <h2>Formulir Pemesanan</h2>
+      <form onsubmit="return kirimPesan()">
+        <input type="text" id="nama" placeholder="Nama Kamu" required />
+        <select id="platform" required>
+          <option value="">Pilih Platform</option>
+          <option value="Instagram">Instagram</option>
+          <option value="TikTok">TikTok</option>
+        </select>
+        <textarea id="paket" rows="3" placeholder="Contoh: 1000 likes, 3000 views" required></textarea>
+        <select id="metode" required>
+          <option value="">Metode Pembayaran</option>
+          <option value="DANA">DANA - 089529592500</option>
+          <option value="Gopay">Gopay - 089529592500</option>
+          <option value="QRIS">QRIS</option>
+        </select>
+        <button type="submit">Kirim Order</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Pembayaran</h2>
+      <ul>
+        <li>DANA: 089529592500</li>
+        <li>Gopay: 089529592500</li>
+        <li>QRIS: <br><img src="qris.jpg" alt="QRIS" class="product-img" style="max-width:180px;" /></li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 RAPZZ - All Rights Reserved
+  </footer>
+
+  <script>
+    function kirimPesan() {
+      const nama = document.getElementById('nama').value;
+      const platform = document.getElementById('platform').value;
+      const paket = document.getElementById('paket').value;
+      const metode = document.getElementById('metode').value;
+
+      const pesan = `Halo, saya ingin order jasa suntik:\nNama: ${nama}\nPlatform: ${platform}\nPaket: ${paket}\nPembayaran: ${metode}`;
+      const url = `https://wa.me/6289676041826?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+      return false;
+    }
+
+    const cards = document.querySelectorAll('.card');
+    const revealOnScroll = () => {
+      cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        const isVisible = top < window.innerHeight - 80;
+        if (isVisible) card.classList.add('reveal');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>
